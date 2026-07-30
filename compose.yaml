@@ -1,0 +1,27 @@
+# Copyright 2026 上海如静知华信息科技有限公司
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-zhuatech_plm}
+      MYSQL_USER: ${MYSQL_USER:-zhuatech}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-zhuatech_dev_password}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-zhuatech_root_password}
+      TZ: Asia/Shanghai
+    volumes: [plm_mysql_data:/var/lib/mysql]
+    healthcheck: {test: [CMD, mysqladmin, ping, -h, localhost], interval: 8s, timeout: 5s, retries: 12}
+  backend:
+    build: ./backend
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-zhuatech_plm}?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
+      DB_USERNAME: ${MYSQL_USER:-zhuatech}
+      DB_PASSWORD: ${MYSQL_PASSWORD:-zhuatech_dev_password}
+      JWT_SECRET: ${JWT_SECRET:-change-this-zhuatech-plm-secret-at-least-32-bytes}
+      CORS_ORIGINS: http://localhost:${WEB_PORT:-8090}
+    depends_on: {mysql: {condition: service_healthy}}
+    ports: ["${SERVER_PORT:-8080}:8080"]
+  frontend:
+    build: ./frontend
+    depends_on: [backend]
+    ports: ["${WEB_PORT:-8090}:80"]
+volumes: {plm_mysql_data: {}}

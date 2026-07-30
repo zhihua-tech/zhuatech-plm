@@ -1,0 +1,16 @@
+/* Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. */
+package cn.zhuatech.plm.service;
+import cn.zhuatech.plm.common.BusinessException; import cn.zhuatech.plm.dto.PlmDto.*; import cn.zhuatech.plm.model.*; import cn.zhuatech.plm.repository.*; import org.springframework.stereotype.Service; import org.springframework.transaction.annotation.Transactional; import java.time.*; import java.time.format.DateTimeFormatter; import java.util.List;
+@Service @Transactional(readOnly=true) public class PlmService {
+    private final ProductRepository products; private final PartRepository parts; private final BomItemRepository bom; private final ChangeRequestRepository changes; private final TechnicalDocumentRepository documents;
+    public PlmService(ProductRepository products,PartRepository parts,BomItemRepository bom,ChangeRequestRepository changes,TechnicalDocumentRepository documents){this.products=products;this.parts=parts;this.bom=bom;this.changes=changes;this.documents=documents;}
+    public Dashboard dashboard(){return new Dashboard(products.count(),parts.count(),changes.countByStatusNot("已关闭"),changes.countByRiskLevelAndStatusNot("高","已关闭"),documents.countByStatus("已发布"),products.countByLifecycleStage("量产"),products.findAllByOrderByProductCodeAsc().stream().limit(5).map(ProductView::from).toList(),changes.findAllByOrderByDueDateAsc().stream().filter(c->!"已关闭".equals(c.getStatus())).limit(5).map(ChangeView::from).toList(),documents.findAllByOrderByDocumentNoAsc().stream().limit(5).map(DocumentView::from).toList());}
+    public List<ProductView> products(){return products.findAllByOrderByProductCodeAsc().stream().map(ProductView::from).toList();}
+    public List<PartView> parts(){return parts.findAllByOrderByPartNoAsc().stream().map(PartView::from).toList();}
+    public List<BomView> bom(String productCode){return bom.findAllByProductCodeOrderByLevelNoAscIdAsc(productCode).stream().map(i->new BomView(i.getId(),i.getProductCode(),i.getParentPartNo(),i.getChildPartNo(),parts.findByPartNo(i.getChildPartNo()).map(Part::getPartName).orElse("未知物料"),i.getLevelNo(),i.getQuantity(),i.getUnit(),i.getEffectivity())).toList();}
+    public List<ChangeView> changes(){return changes.findAllByOrderByDueDateAsc().stream().map(ChangeView::from).toList();}
+    public List<DocumentView> documents(){return documents.findAllByOrderByDocumentNoAsc().stream().map(DocumentView::from).toList();}
+    @Transactional public ProductView createProduct(CreateProductRequest r){if(products.findAll().stream().anyMatch(p->p.getProductCode().equals(r.productCode())))throw new BusinessException("产品编码已存在");return ProductView.from(products.save(new Product(r.productCode(),r.productName(),r.model(),r.version(),r.lifecycleStage(),r.owner(),"设计中")));}
+    @Transactional public ChangeView createChange(CreateChangeRequest r){String no="ECR-"+LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));return ChangeView.from(changes.save(new ChangeRequest(no,r.title(),r.productCode(),r.changeType(),r.reason(),r.owner(),r.dueDate(),r.riskLevel(),"草稿")));}
+    @Transactional public ChangeView advanceChange(Long id){var change=changes.findById(id).orElseThrow(()->new BusinessException("工程变更不存在"));if("已关闭".equals(change.getStatus()))throw new BusinessException("工程变更已关闭");change.advance();return ChangeView.from(change);}
+}

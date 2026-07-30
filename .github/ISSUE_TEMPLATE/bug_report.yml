@@ -1,0 +1,18 @@
+# Copyright 2026 上海如静知华信息科技有限公司
+name: 缺陷反馈
+description: 反馈可复现的 ZhuaTech PLM 问题
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes: {value: "请勿填写真实物料、供应商、检验数据、人员信息、生产记录或访问密钥。"}
+  - type: textarea
+    id: description
+    attributes: {label: 问题描述, description: 说明预期行为与实际行为}
+    validations: {required: true}
+  - type: textarea
+    id: steps
+    attributes: {label: 复现步骤}
+    validations: {required: true}
+  - type: input
+    id: version
+    attributes: {label: 版本与运行环境}
