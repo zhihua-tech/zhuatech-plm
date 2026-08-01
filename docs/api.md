@@ -16,3 +16,7 @@ Copyright 2026 上海如静知华信息科技有限公司。
 | PATCH | `/api/plm/changes/{id}/advance` | 推进变更状态 |
 
 统一响应格式：`{"success":true,"message":"操作成功","data":{...}}`。接口参数由 Jakarta Validation 校验，业务异常由全局异常处理器转换为可读错误响应。
+
+## 工程变更影响
+
+`POST /api/plm/change-impact`：返回工程变更风险分、放行决定和必须完成的跨部门评审。
