@@ -173,3 +173,7 @@ npm run dev
 `POST /api/plm/change-impact` 会把受影响零件、供应商、在制订单、安全关键属性和回退准备度汇总为风险分，给出 `PASS / REVIEW / BLOCK` 决策，并列出必须参与的工程、供应链、生产交付及质量安全评审。
 
 安全关键且没有回退方案的变更会被阻断；该高风险路径已经写入集成测试。
+
+## BOM 发布准备度
+
+新增 `POST /api/plm/insights/bom-release`，检查物料批准、失效料替代、工程变更、成本偏差和合规文件，输出 `READY`、`REVIEW` 或 `BLOCK`。
