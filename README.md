@@ -177,3 +177,7 @@ npm run dev
 ## BOM 发布准备度
 
 新增 `POST /api/plm/insights/bom-release`，检查物料批准、失效料替代、工程变更、成本偏差和合规文件，输出 `READY`、`REVIEW` 或 `BLOCK`。
+
+## 设计成熟度阶段门
+
+新增 `POST /api/plm/insights/design-maturity`，以设计交付物批准率、严重问题、样机通过率、需求覆盖率和供应商冻结状态形成可量化的成熟度评分，输出 `READY / REVIEW / BLOCK`。研发团队可在试制、定型和量产前统一识别缺口，并获得补齐交付物、关闭严重问题和冻结供应商设计等行动建议。
