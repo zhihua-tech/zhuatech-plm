@@ -1,4 +1,4 @@
-<!-- Copyright 2026 上海如静知华信息科技有限公司 -->
+<!-- Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ -->
 <script setup>import AdminShell from '../../components/AdminShell.vue';import StatusBadge from '../../components/StatusBadge.vue';import {changes} from '../../api/mock';</script>
 <template><AdminShell><template #title>工程变更</template><div class="heading"><div><p>ENGINEERING CHANGE CONTROL</p><h1>工程变更中心</h1><span>从变更申请、影响分析到实施验证的闭环控制</span></div><button class="btn primary">＋ 发起工程变更</button></div>
  <section class="change-flow"><div><small>01</small><span>草稿</span><b>3</b><i>→</i></div><div><small>02</small><span>评审中</span><b>5</b><i>→</i></div><div><small>03</small><span>待实施</span><b>4</b><i>→</i></div><div><small>04</small><span>验证中</span><b>6</b><i>→</i></div><div><small>05</small><span>本月已关闭</span><b>12</b></div><aside><span>按期关闭率</span><b>91.7%</b><small>目标 95%</small></aside></section>

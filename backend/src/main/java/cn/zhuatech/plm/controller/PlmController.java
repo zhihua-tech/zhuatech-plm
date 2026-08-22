@@ -1,4 +1,4 @@
-/* Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. */
+/* Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. · https://www.zhuatech.cn/ */
 package cn.zhuatech.plm.controller;
 import cn.zhuatech.plm.common.ApiResponse; import cn.zhuatech.plm.dto.PlmDto.*; import cn.zhuatech.plm.service.PlmService; import jakarta.validation.Valid; import org.springframework.security.access.prepost.PreAuthorize; import org.springframework.web.bind.annotation.*; import java.util.List;
 @RestController @RequestMapping("/api/plm") public class PlmController {

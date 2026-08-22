@@ -1,4 +1,4 @@
-<!-- Copyright 2026 上海如静知华信息科技有限公司 -->
+<!-- Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ -->
 <script setup>
 const groups=[
  {label:'产品数据',items:[['/admin/dashboard','产品驾驶舱','⌂'],['/admin/products','产品与 BOM','▱'],['/admin/documents','技术文档','▤']]},

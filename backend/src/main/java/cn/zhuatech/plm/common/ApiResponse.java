@@ -1,4 +1,4 @@
-/* Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. */
+/* Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. · https://www.zhuatech.cn/ */
 package cn.zhuatech.plm.common;
 import java.time.OffsetDateTime;
 public record ApiResponse<T>(boolean success,String message,T data,OffsetDateTime timestamp){

@@ -1,4 +1,4 @@
-/* Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. */
+/* Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. · https://www.zhuatech.cn/ */
 package cn.zhuatech.plm.service;
 import cn.zhuatech.plm.common.BusinessException; import cn.zhuatech.plm.dto.PlmDto.*; import cn.zhuatech.plm.model.*; import cn.zhuatech.plm.repository.*; import org.springframework.stereotype.Service; import org.springframework.transaction.annotation.Transactional; import java.time.*; import java.time.format.DateTimeFormatter; import java.util.List;
 @Service @Transactional(readOnly=true) public class PlmService {

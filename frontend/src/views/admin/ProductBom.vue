@@ -1,4 +1,4 @@
-<!-- Copyright 2026 上海如静知华信息科技有限公司 -->
+<!-- Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ -->
 <script setup>import AdminShell from '../../components/AdminShell.vue';import StatusBadge from '../../components/StatusBadge.vue';import {bom} from '../../api/mock';</script>
 <template><AdminShell><template #title>产品与 BOM</template><div class="heading"><div><p>PRODUCT STRUCTURE</p><h1>产品结构与 BOM</h1><span>维护产品基线、物料层级和版本有效性</span></div><div><button class="btn ghost">对比版本</button><button class="btn primary">＋ 添加物料</button></div></div>
  <section class="product-hero"><div class="device"><span>SV</span><i></i></div><div class="hero-main"><p>PRD-SV750</p><h2>知华伺服驱动器 <small>SV-750</small></h2><div><StatusBadge value="量产"/><span>当前版本 <b>V2.4</b></span><span>产品负责人 <b>顾远</b></span><span>更新于 <b>今天 09:42</b></span></div></div><div class="hero-stat"><span>BOM 行数</span><b>68</b><small>3 个层级</small></div><div class="hero-stat"><span>物料成本</span><b>¥ 1,284</b><small>较 V2.3 ↓ 2.6%</small></div></section>

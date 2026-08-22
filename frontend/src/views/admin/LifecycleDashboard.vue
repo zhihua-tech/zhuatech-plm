@@ -1,4 +1,4 @@
-<!-- Copyright 2026 上海如静知华信息科技有限公司 -->
+<!-- Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ -->
 <script setup>import AdminShell from '../../components/AdminShell.vue';import StatusBadge from '../../components/StatusBadge.vue';import {products,changes,documents} from '../../api/mock';</script>
 <template><AdminShell><template #title>产品驾驶舱</template>
  <div class="heading"><div><p>PRODUCT LIFECYCLE OVERVIEW</p><h1>产品驾驶舱</h1><span>统一掌握产品状态、工程变更与技术资料完整度</span></div><div><button class="btn ghost">导出简报</button><button class="btn primary">＋ 新建产品</button></div></div>

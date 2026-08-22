@@ -1,4 +1,4 @@
-/* Copyright 2026 上海如静知华信息科技有限公司 */
+/* Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ */
 export const products=[
  {code:'PRD-SV750',name:'知华伺服驱动器',model:'SV-750',version:'V2.4',stage:'量产',owner:'顾远',status:'已发布',progress:100},
  {code:'PRD-IO240',name:'工业远程 IO 模块',model:'IO-240',version:'V1.8',stage:'量产',owner:'林澈',status:'已发布',progress:100},

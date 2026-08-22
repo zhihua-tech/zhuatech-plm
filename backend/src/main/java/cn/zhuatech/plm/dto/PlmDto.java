@@ -1,4 +1,4 @@
-/* Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. */
+/* Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. · https://www.zhuatech.cn/ */
 package cn.zhuatech.plm.dto;
 import cn.zhuatech.plm.model.*; import jakarta.validation.constraints.*; import java.time.LocalDate; import java.util.List;
 public final class PlmDto {
