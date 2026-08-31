@@ -181,3 +181,7 @@ npm run dev
 ## 设计成熟度阶段门
 
 新增 `POST /api/plm/insights/design-maturity`，以设计交付物批准率、严重问题、样机通过率、需求覆盖率和供应商冻结状态形成可量化的成熟度评分，输出 `READY / REVIEW / BLOCK`。研发团队可在试制、定型和量产前统一识别缺口，并获得补齐交付物、关闭严重问题和冻结供应商设计等行动建议。
+
+## 企业级工程变更发布阶段门
+
+新增 `POST /api/enterprise/plm/engineering-change-release`，覆盖影响分析、BOM 校验、图纸基线、法规审批、严重偏差、供应商确认和回退方案，输出可审计的 `RELEASE / REVIEW / BLOCKED`。详见 [工程变更控制说明](docs/ENTERPRISE_ENGINEERING_CHANGE.md)。
