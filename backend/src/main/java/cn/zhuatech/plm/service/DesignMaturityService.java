@@ -10,9 +10,15 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class DesignMaturityService {
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result assess(Request request) {
         double approvalRate = request.approvedArtifacts() * 100.0 / request.requiredArtifacts();
         double base = approvalRate * 0.4
@@ -46,10 +52,16 @@ public class DesignMaturityService {
         return new Result(round(approvalRate), score, status, actions);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     private double round(double value) {
         return Math.round(value * 10.0) / 10.0;
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(
             @Min(1) int requiredArtifacts,
             @Min(0) int approvedArtifacts,
@@ -59,5 +71,8 @@ public class DesignMaturityService {
             @NotNull Boolean supplierDesignFrozen
     ) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(double artifactApprovalRate, int maturityScore, String status, List<String> actions) {}
 }

@@ -1,7 +1,13 @@
 /* Copyright 2026 Shanghai Rujing Zhihua Information Technology Co., Ltd. · https://www.zhuatech.cn/ */
 package cn.zhuatech.plm.config;
 import cn.zhuatech.plm.model.*; import cn.zhuatech.plm.repository.*; import org.springframework.boot.CommandLineRunner; import org.springframework.context.annotation.*; import org.springframework.security.crypto.password.PasswordEncoder; import java.time.LocalDate;
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Configuration public class DataInitializer {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Bean CommandLineRunner seed(UserRepository users,ProductRepository products,PartRepository parts,BomItemRepository bom,ChangeRequestRepository changes,TechnicalDocumentRepository docs,PasswordEncoder encoder){return args->{if(users.count()>0)return;
         users.save(new UserAccount("admin",encoder.encode("admin123"),"产品平台主管",UserAccount.Role.ADMIN)); users.save(new UserAccount("engineer",encoder.encode("engineer123"),"产品工程师",UserAccount.Role.PRODUCT_ENGINEER)); users.save(new UserAccount("reviewer",encoder.encode("review123"),"技术评审员",UserAccount.Role.REVIEWER));
         products.save(new Product("PRD-SV750","知华伺服驱动器","SV-750","V2.4","量产","顾远","已发布")); products.save(new Product("PRD-IO240","工业远程 IO 模块","IO-240","V1.8","量产","林澈","已发布")); products.save(new Product("PRD-GW100","边缘计算网关","GW-100","V0.9","试制","周岚","验证中")); products.save(new Product("PRD-HMI10","10.1 寸工业触控屏","HMI-101","V1.2","设计","许亦","设计中"));

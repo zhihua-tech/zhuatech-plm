@@ -2,4 +2,10 @@
 package cn.zhuatech.plm;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-@SpringBootTest class ZhuaTechPlmApplicationTests {@Test void contextLoads(){}}
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
+@SpringBootTest class ZhuaTechPlmApplicationTests {/**
+                                                    * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+                                                    */
+@Test void contextLoads(){}}

@@ -8,8 +8,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class ChangeImpactService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Result assess(Request request) {
         int score = Math.min(100, Math.min(30, request.affectedParts() * 2)
             + Math.min(24, request.affectedSuppliers() * 8)
@@ -25,9 +31,15 @@ public class ChangeImpactService {
         return new Result(request.changeNo(), score, decision, reviews);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String changeNo, @Min(0) int affectedParts,
                           @Min(0) int affectedSuppliers, @Min(0) int openOrders,
                           boolean safetyCritical, boolean rollbackReady) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Result(String changeNo, int riskScore, String decision,
                          List<String> requiredReviews) {}
 }
