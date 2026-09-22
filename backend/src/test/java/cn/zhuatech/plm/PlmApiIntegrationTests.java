@@ -25,5 +25,5 @@ import org.junit.jupiter.api.Test; import org.springframework.beans.factory.anno
     /**
      * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
      */
-    @Test void anonymousRequestIsDenied() throws Exception {mvc.perform(get("/api/plm/products")).andExpect(status().isForbidden());}
+    @Test void anonymousRequestIsDenied() throws Exception {mvc.perform(get("/api/plm/products")).andExpect(status().isUnauthorized());}
 }
