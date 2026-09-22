@@ -15,4 +15,4 @@ app:
     secret: test-zhuatech-plm-secret-at-least-32-bytes-long
     expiration: PT1H
   cors:
-    allowed-origins: http://localhost:5173
+    allowed-origins: http://localhost:5173,http://127.0.0.1:5173

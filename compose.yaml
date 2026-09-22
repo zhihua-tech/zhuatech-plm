@@ -17,7 +17,7 @@ services:
       DB_USERNAME: ${MYSQL_USER:-zhuatech}
       DB_PASSWORD: ${MYSQL_PASSWORD:-zhuatech_dev_password}
       JWT_SECRET: ${JWT_SECRET:-change-this-zhuatech-plm-secret-at-least-32-bytes}
-      CORS_ORIGINS: http://localhost:${WEB_PORT:-8090}
+      CORS_ORIGINS: http://localhost:${WEB_PORT:-8090},http://127.0.0.1:${WEB_PORT:-8090}
     depends_on: {mysql: {condition: service_healthy}}
     ports: ["${SERVER_PORT:-8080}:8080"]
   frontend:
