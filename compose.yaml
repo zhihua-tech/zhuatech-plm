@@ -20,8 +20,16 @@ services:
       CORS_ORIGINS: http://localhost:${WEB_PORT:-8090},http://127.0.0.1:${WEB_PORT:-8090}
     depends_on: {mysql: {condition: service_healthy}}
     ports: ["${SERVER_PORT:-8080}:8080"]
+    healthcheck:
+      test: ["CMD-SHELL", "if command -v nc >/dev/null 2>&1; then nc -z 127.0.0.1 8080; else bash -c '</dev/tcp/127.0.0.1/8080'; fi"]
+      interval: 5s
+      timeout: 3s
+      retries: 40
+      start_period: 15s
   frontend:
     build: ./frontend
-    depends_on: [backend]
+    depends_on:
+      backend:
+        condition: service_healthy
     ports: ["${WEB_PORT:-8090}:80"]
 volumes: {plm_mysql_data: {}}
