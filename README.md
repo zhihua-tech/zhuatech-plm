@@ -1,5 +1,7 @@
 # ZhuaTech PLM · 知华科技产品生命周期管理系统
 
+[简体中文](README.md) | [English](README.en.md)
+
 <p align="center">
   <img alt="Java 21" src="https://img.shields.io/badge/Java-21-315d7d?style=flat-square">
   <img alt="Spring Boot 4" src="https://img.shields.io/badge/Spring%20Boot-4.0-4d8069?style=flat-square">
