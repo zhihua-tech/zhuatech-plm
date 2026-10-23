@@ -1,0 +1,49 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "REVIEW",
+      "grossUsage": "#2.5",
+      "blendedUnitCost": "#9.5",
+      "candidateMaterialCost": "#23.75"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "yieldPct": "0"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "substituteApproved": "NO"
+    },
+    "expected": {
+      "decision": "HOLD"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "substitutePct": "0",
+      "substituteApproved": "NO"
+    },
+    "expected": {
+      "decision": "REVIEW",
+      "candidateMaterialCost": "#25"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "yieldPct": "100"
+    },
+    "expected": {
+      "grossUsage": "#2",
+      "candidateMaterialCost": "#19"
+    },
+    "error": false
+  }
+]

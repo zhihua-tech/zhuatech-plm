@@ -1,0 +1,98 @@
+{
+  "slug": "plm",
+  "title": "BOM损耗与替代料成本情景",
+  "fields": [
+    {
+      "key": "id",
+      "label": "记录编号",
+      "type": "ID"
+    },
+    {
+      "key": "netUsage",
+      "label": "每成品净用量",
+      "type": "NUMBER",
+      "scale": 6,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "yieldPct",
+      "label": "工艺良率%",
+      "type": "NUMBER",
+      "scale": 4,
+      "min": "0",
+      "max": "100"
+    },
+    {
+      "key": "substitutePct",
+      "label": "获批替代比例%",
+      "type": "NUMBER",
+      "scale": 4,
+      "min": "0",
+      "max": "100"
+    },
+    {
+      "key": "primaryUnitCost",
+      "label": "主料单位成本",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "substituteUnitCost",
+      "label": "替代料单位成本",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "substituteApproved",
+      "label": "替代料已批准",
+      "type": "ENUM",
+      "options": [
+        "YES",
+        "NO"
+      ]
+    }
+  ],
+  "columns": [
+    {
+      "key": "grossUsage",
+      "label": "含损耗单位投入"
+    },
+    {
+      "key": "lossUsage",
+      "label": "额外损耗投入"
+    },
+    {
+      "key": "blendedUnitCost",
+      "label": "混合单价"
+    },
+    {
+      "key": "candidateMaterialCost",
+      "label": "单位成品材料成本"
+    }
+  ],
+  "description": "核对主料替代比例、单位耗用及工艺良率，计算单位成品投入和候选材料成本，不发布BOM或替代料。",
+  "owner": "上海如静知华信息科技有限公司",
+  "website": "https://www.zhuatech.cn/",
+  "authorization": "商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。",
+  "version": 1,
+  "notes": "输入均须为已获授权的同口径数据。金额固定人民币元；比例为百分数。核算结果只用于复核，未审批、未写库、未发起外部调用，也未触发付款、签名、资料销毁或设备控制。建议不构成法律、安全、会计或碳核证结论。",
+  "sample": {
+    "asOf": "2026-10-23",
+    "records": [
+      {
+        "id": "ITEM-001",
+        "netUsage": "2",
+        "yieldPct": "80",
+        "substitutePct": "25",
+        "primaryUnitCost": "10",
+        "substituteUnitCost": "8",
+        "substituteApproved": "YES"
+      }
+    ]
+  }
+}

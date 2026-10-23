@@ -23,8 +23,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     this.jwt = jwt;
     this.users = users;
   }
-  /** 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。 */
 
+  /** 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。 */
   @Override
   protected void doFilterInternal(
       HttpServletRequest req, HttpServletResponse res, FilterChain chain)
@@ -46,7 +46,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         var auth = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
         auth.setDetails(new WebAuthenticationDetailsSource().buildDetails(req));
         SecurityContextHolder.getContext().setAuthentication(auth);
-      } catch (JwtException | UsernameNotFoundException ignored) {
+      } catch (JwtException | UsernameNotFoundException | IllegalArgumentException ignored) {
         SecurityContextHolder.clearContext();
       }
     }
