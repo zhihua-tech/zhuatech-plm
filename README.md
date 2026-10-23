@@ -1,5 +1,13 @@
 # ZhuaTech PLM · 知华科技产品生命周期管理系统
 
+## 本次升级：BOM用量与自引用预检
+
+支持 UTF-8 CSV 文件/粘贴预检、物理行定位、批次重复业务键检查、模板下载和安全 CSV 导出。
+
+- 父项与子项不能相同（不代表已做完整多层环检测）。
+
+入口：`/preflight.html`（沿用现有后端认证）。预检不写库、不执行审批，也不替代主数据存在性、库存/余额锁定及正式入库事务校验。[规则、接口与边界说明](docs/BATCH-PREFLIGHT.md)。
+
 [简体中文](README.md) | [English](README.en.md)
 
 <p align="center">

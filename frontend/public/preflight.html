@@ -1,0 +1,15 @@
+<!doctype html>
+<!-- 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/ -->
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="same-origin"><title>BOM用量与自引用预检 · 知华科技</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/preflight.css"><script type="module" src="/preflight.js"></script></head>
+<body><header><a href="/">返回业务系统</a><span>知华科技 / 数据预检</span></header><main>
+<section class="heading"><h1>BOM用量与自引用预检</h1><p>上传或粘贴 CSV，逐行检查业务数据。不保存文件、不写入业务库；通过预检不等于已导入或已审批。</p></section>
+<section class="auth" id="auth-panel"><label>登录密码（已登录可留空）<input id="credential" type="password" autocomplete="off" spellcheck="false" placeholder="输入现有企业账号密码"></label><label>账号<input id="username" autocomplete="username" placeholder="输入现有账号"></label><button id="connect">加载规则</button><span id="identity-note">沿用现有登录，不新增账号、不保存新令牌。</span></section>
+<div id="status" role="status" aria-live="polite">请先加载规则。不会在浏览器存储新增凭据或上传内容。</div>
+<section class="panel"><div class="toolbar"><h2>批次内容</h2><label class="date-label">核对日期<input id="as-of" type="date" required></label><label class="file-button">选择 CSV<input id="file" type="file" accept=".csv,text/csv"></label><button id="example" disabled>载入示例</button><button id="template" disabled>下载空模板</button></div>
+<label class="editor-label" for="csv">CSV 文本（UTF-8，最多 256 KiB / 500 行；支持逗号、引号内换行）</label><textarea id="csv" spellcheck="false" placeholder="加载规则后，可选择文件或粘贴CSV内容。"></textarea>
+<div class="actionbar"><button class="primary" id="preview" disabled>执行预检</button><button id="clear">清空内容</button><span>业务错误会保留行号；含错误的批次不会自动写入任何数据。</span></div></section>
+<details class="panel"><summary>字段与业务规则</summary><div id="rules" class="rules"></div></details>
+<section id="result" class="panel" hidden><div class="toolbar"><h2>预检报告</h2><button id="export-valid">导出无错误行</button><button id="export-issues">导出问题清单</button></div><div id="metrics" class="metrics"></div><p class="note">无错误行导出不包含被阻断的行，完整原始批次仍在上方文本框。所有导出字段均进行表格公式转义。列表每页 50 条。</p>
+<h3>问题清单</h3><div class="table-scroll"><table><thead><tr><th>物理行</th><th>字段</th><th>级别</th><th>规则代码</th><th>说明</th></tr></thead><tbody id="issues"></tbody></table></div><div class="pager"><button id="issue-prev">上一页</button><span id="issue-page"></span><button id="issue-next">下一页</button></div>
+<h3>数据预览</h3><div class="table-scroll"><table><thead id="data-head"></thead><tbody id="data-body"></tbody></table></div><div class="pager"><button id="data-prev">上一页</button><span id="data-page"></span><button id="data-next">下一页</button></div></section>
+<footer>上海如静知华信息科技有限公司 · <a href="https://www.zhuatech.cn/" target="_blank" rel="noopener">知华科技官网</a></footer></main></body></html>

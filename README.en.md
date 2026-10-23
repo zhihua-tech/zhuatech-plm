@@ -1,5 +1,9 @@
 [简体中文](README.md) | **English**
 
+## Update: business batch validation
+
+An authenticated CSV preflight workspace now validates the project-specific contract, duplicate business keys and cross-field rules. It reports physical row numbers, supports templates, and escapes spreadsheet formulas on export. Decimal values remain strings. This is read-only: it does **not** import records, approve transactions or certify the complete application for production. See [the field contract and API guide](docs/BATCH-PREFLIGHT.md).
+
 # ZhuaTech Product Lifecycle Management
 
 > A source-available enterprise project by [ZhuaTech](https://www.zhuatech.cn/) for manufacturing planning, execution, quality, and traceability.

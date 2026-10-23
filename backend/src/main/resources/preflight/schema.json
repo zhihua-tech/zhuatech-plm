@@ -1,0 +1,78 @@
+{
+  "slug": "plm",
+  "title": "BOM用量与自引用预检",
+  "fields": [
+    {
+      "key": "line_no",
+      "label": "BOM行号",
+      "type": "ID",
+      "length": 200
+    },
+    {
+      "key": "parent",
+      "label": "父项",
+      "type": "ID",
+      "length": 200
+    },
+    {
+      "key": "component",
+      "label": "子项",
+      "type": "ID",
+      "length": 200
+    },
+    {
+      "key": "quantity",
+      "label": "用量",
+      "type": "DECIMAL",
+      "length": 200,
+      "scale": 2,
+      "min": "0.01"
+    },
+    {
+      "key": "scrap_pct",
+      "label": "损耗百分比",
+      "type": "DECIMAL",
+      "length": 200,
+      "scale": 2,
+      "max": "100"
+    },
+    {
+      "key": "revision",
+      "label": "版本",
+      "type": "ID",
+      "length": 200
+    }
+  ],
+  "unique": [
+    [
+      "line_no"
+    ],
+    [
+      "parent",
+      "component",
+      "revision"
+    ]
+  ],
+  "rules": [
+    {
+      "op": "DIFFERENT",
+      "args": [
+        "parent",
+        "component"
+      ],
+      "code": "BOM_SELF_REFERENCE",
+      "message": "父项与子项不能相同（不代表已做完整多层环检测）",
+      "bad": {
+        "component": "PRODUCT-01"
+      }
+    }
+  ],
+  "sampleCsv": "line_no,parent,component,quantity,scrap_pct,revision\nBOM-001,PRODUCT-01,PART-01,2,2,R1\n",
+  "limits": {
+    "rows": 500,
+    "bytes": 262144,
+    "columns": 32,
+    "cellCharacters": 4000
+  },
+  "scope": "Read-only batch validation; no persistence, reference-master lookup or full production certification."
+}
